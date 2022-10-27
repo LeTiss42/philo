@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:30:28 by mravera           #+#    #+#             */
-/*   Updated: 2022/10/27 18:07:48 by mravera          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:28:14 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,10 @@ typedef struct s_args
 int	pl_parsing(int argc, char **argv, t_args *args);
 int	pl_check_argc(int argc);
 int	pl_parse_argv(char **argv, t_args *args);
+int	pl_check_argv(char **argv);
+
+//pl_utils
+int	pl_atoi(const char *nptr);
+int	pl_isdigit(int c);
 
 #endif

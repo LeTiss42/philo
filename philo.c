@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:28:50 by mravera           #+#    #+#             */
-/*   Updated: 2022/10/27 18:07:19 by mravera          ###   ########.fr       */
+/*   Updated: 2022/10/27 18:30:25 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	*routine(void *args)
 {
 	printf("Test = %s\n", (char *)args);
-	usleep(1000000);
 	printf("End = %s\n", (char *)args);
 	return (NULL);
 }
@@ -29,7 +28,7 @@ int	main(int argc, char **argv)
 	t_args		tt;
 
 	tt = (t_args){0};
-	pl_parsing(argc, argv, &tt);
+	printf("parsing = %d\n", pl_parsing(argc, argv, &tt));
 	test = "t1";
 	test2 = "t2";
 	pthread_create(&t1, NULL, &routine, test);
