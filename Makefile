@@ -6,7 +6,7 @@
 #    By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 00:59:15 by mravera           #+#    #+#              #
-#    Updated: 2022/10/27 18:12:29 by mravera          ###   ########.fr        #
+#    Updated: 2022/10/28 18:40:29 by mravera          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME := philo
 SRCS := philo.c \
 		pl_parsing.c \
 		pl_utils.c \
-#		fichier4.c \
+		ps_routine.c \
 
 OBJ := $(SRCS:%.c=%.o)
 
