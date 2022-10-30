@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:57:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/10/27 18:35:55 by mravera          ###   ########.fr       */
+/*   Updated: 2022/10/30 15:58:38 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	pl_check_argv(char **argv)
 	{
 		while (argv[i][j])
 		{
-			if (pl_isdigit(argv[i][j]) == 0)
+			if (pl_isdigit(argv[i][j]) == 0 && argv[i][j] != '-')
 			{
 				printf("Other than digit arg spotted.\n");
 				return (0);

@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   pl_set_time.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 14:28:50 by mravera           #+#    #+#             */
-/*   Updated: 2022/10/30 23:00:08 by mravera          ###   ########.fr       */
+/*   Created: 2022/10/30 17:03:38 by mravera           #+#    #+#             */
+/*   Updated: 2022/10/30 17:13:28 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+long int	pl_get_ms_time(void)
 {
-	t_admin			x;
+	struct timeval	tv;
+	long int		res;
 
-	if (pl_parsing(argc, argv, &x.args) == 1)
-		printf("Parsing ok\n");
-	if (pl_init_all(&x, 1) == 1)
-		printf("init ok\n");
-	pl_init_all(&x, 5);
-	printf("last_time = %ld\nptr = %p\n", x.first_philo->last_time, x.first_philo);
-	printf("next = %p\n", x.first_philo->next);
-	return (1);
+	if (gettimeofday(&tv, NULL) == -1)
+		printf("Error calling function 'gettimeofday'.\n");
+	res = tv.tv_sec * 1000;
+	res = res + (tv.tv_usec / 1000);
+	return (res);
 }

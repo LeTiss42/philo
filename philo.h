@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:30:28 by mravera           #+#    #+#             */
-/*   Updated: 2022/10/28 20:30:30 by mravera          ###   ########.fr       */
+/*   Updated: 2022/10/30 20:53:56 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # include <pthread.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <sys/time.h>
+# include <limits.h>
 
 typedef struct s_args
 {
@@ -30,6 +32,7 @@ typedef struct s_args
 typedef struct s_philo
 {
 	int				num;
+	long int		last_time;
 	struct s_philo	*next;
 	pthread_mutex_t	own_fork;
 	pthread_mutex_t	*next_fork;
@@ -38,22 +41,32 @@ typedef struct s_philo
 typedef struct s_admin
 {
 	struct s_philo	*first_philo;
-	int				end;
 	int				nb_philo;
-	suseconds_t		go_time;
+	int				end;
+	long int		start_time;
+	t_args			args;
 }	t_admin;
 
 //pl_parsing
-int		pl_parsing(int argc, char **argv, t_args *args);
-int		pl_check_argc(int argc);
-int		pl_parse_argv(char **argv, t_args *args);
-int		pl_check_argv(char **argv);
+int			pl_parsing(int argc, char **argv, t_args *args);
+int			pl_check_argc(int argc);
+int			pl_parse_argv(char **argv, t_args *args);
+int			pl_check_argv(char **argv);
 
-//ps_routine
-void	*routine(void *args);
+//pl_routine
+void		*routine(void *args);
+
+//pl_init
+int			pl_init_all(t_admin *x, int nb_philo);
+int			pl_add_philo(t_admin *x, int num);
+int			pl_add_first_philo(t_admin *x);
+int			pl_add_any_philo(t_philo *x, int num);
+
+//pl_set_time
+long int	pl_get_ms_time(void);
 
 //pl_utils
-int		pl_atoi(const char *nptr);
-int		pl_isdigit(int c);
+int			pl_atoi(const char *nptr);
+int			pl_isdigit(int c);
 
 #endif
