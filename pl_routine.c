@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_routine.c                                       :+:      :+:    :+:   */
+/*   pl_routine.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:24:49 by mravera           #+#    #+#             */
-/*   Updated: 2022/10/28 18:36:43 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/02 12:09:22 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*routine(void *args)
+void	*routine(void *admin)
 {
-	printf("Test = %s\n", (char *)args);
-	printf("End = %s\n", (char *)args);
+	printf("Test = %s\n", (char *)admin);
+	printf("End = %s\n", (char *)admin);
 	return (NULL);
 }

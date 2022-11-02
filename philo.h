@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:30:28 by mravera           #+#    #+#             */
-/*   Updated: 2022/10/30 20:53:56 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/02 17:14:40 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,6 @@
 # include <sys/time.h>
 # include <limits.h>
 
-typedef struct s_args
-{
-	int	nb_philo;
-	int	tt_d;
-	int	tt_e;
-	int	tt_s;
-	int	nb_meal;
-}	t_args;
-
 typedef struct s_philo
 {
 	int				num;
@@ -40,27 +31,32 @@ typedef struct s_philo
 
 typedef struct s_admin
 {
-	struct s_philo	*first_philo;
 	int				nb_philo;
-	int				end;
+	int				tt_d;
+	int				tt_e;
+	int				tt_s;
+	int				nb_meal;
+	t_philo			*first_philo;
+	t_philo			*philo;
+	int				is_end;
 	long int		start_time;
-	t_args			args;
 }	t_admin;
 
 //pl_parsing
-int			pl_parsing(int argc, char **argv, t_args *args);
+int			pl_parsing(int argc, char **argv, t_admin *admin);
 int			pl_check_argc(int argc);
-int			pl_parse_argv(char **argv, t_args *args);
+int			pl_parse_argv(char **argv, t_admin *admin);
 int			pl_check_argv(char **argv);
 
 //pl_routine
-void		*routine(void *args);
+void		*routine(void *admin);
 
 //pl_init
+int			pl_init_piz(t_admin *admin);
 int			pl_init_all(t_admin *x, int nb_philo);
 int			pl_add_philo(t_admin *x, int num);
 int			pl_add_first_philo(t_admin *x);
-int			pl_add_any_philo(t_philo *x, int num);
+int			pl_add_any_philo(t_admin *admin, t_philo *x, int num);
 
 //pl_set_time
 long int	pl_get_ms_time(void);
@@ -68,5 +64,7 @@ long int	pl_get_ms_time(void);
 //pl_utils
 int			pl_atoi(const char *nptr);
 int			pl_isdigit(int c);
+void		pl_free_all_piz(t_admin *admin);
+void		pl_free_all(t_admin *admin);
 
 #endif
