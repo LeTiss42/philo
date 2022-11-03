@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:30:28 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/02 17:14:40 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/03 12:31:10 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_philo
 	int				num;
 	long int		last_time;
 	struct s_philo	*next;
+	pthread_t		th;
 	pthread_mutex_t	own_fork;
 	pthread_mutex_t	*next_fork;
 }	t_philo;
@@ -49,14 +50,14 @@ int			pl_parse_argv(char **argv, t_admin *admin);
 int			pl_check_argv(char **argv);
 
 //pl_routine
-void		*routine(void *admin);
+void		*func(void *admin);
 
 //pl_init
 int			pl_init_piz(t_admin *admin);
-int			pl_init_all(t_admin *x, int nb_philo);
-int			pl_add_philo(t_admin *x, int num);
-int			pl_add_first_philo(t_admin *x);
-int			pl_add_any_philo(t_admin *admin, t_philo *x, int num);
+//int			pl_init_all(t_admin *x, int nb_philo);
+//int			pl_add_philo(t_admin *x, int num);
+//int			pl_add_first_philo(t_admin *x);
+//int			pl_add_any_philo(t_admin *admin, t_philo *x, int num);
 
 //pl_set_time
 long int	pl_get_ms_time(void);

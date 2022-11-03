@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:57:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/02 12:26:22 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/03 12:40:56 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	pl_parsing(int argc, char **argv, t_admin *admin)
 	printf("--------------------\n");
 	if (admin->nb_philo <= 0)
 	{
-		printf("Need at least 1 philosopher to start philosophizing");
+		printf("Need at least 1 philosopher to start philosophizing\n");
 		return (0);
 	}
 	return (1);

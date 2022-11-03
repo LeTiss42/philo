@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 18:20:56 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/02 17:34:59 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/03 12:47:03 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,15 @@ int	pl_init_piz(t_admin *admin)
 		if (pthread_mutex_init(&admin->philo[i].own_fork, NULL) != 0)
 			return (-1);
 		admin->philo[i].last_time = admin->start_time - pl_get_ms_time();
+		if (pthread_create(&admin->philo[i].th, NULL, &func, admin) != 0)
+			return (-1);
+		printf("%d started\n", i);
 		i++;
 	}
 	return (1);
 }
 
+/*
 int	pl_init_all(t_admin *x, int nb_philo)
 {
 	int	i;
@@ -108,3 +112,4 @@ int	pl_add_any_philo(t_admin *admin, t_philo *x, int num)
 	i->next = temp;
 	return (0);
 }
+*/

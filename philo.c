@@ -6,28 +6,37 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:28:50 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/02 17:36:08 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/03 12:45:13 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	print_philo(t_admin *admin);
+//void	print_philo(t_admin *admin);
 void	print_philo_piz(t_admin *admin);
 
 int	main(int argc, char **argv)
 {
 	t_admin			x;
+	int				i;
 
+	i = 0;
 	if (pl_parsing(argc, argv, &x) == 1)
 		printf("Parsing ok\n");
 	if (pl_init_piz(&x) == 1)
 		printf("init ok\n");
 	print_philo_piz(&x);
+	while (i < x.nb_philo)
+	{
+		pthread_join(x.philo[i].th, NULL);
+		printf("Thread number %d has finished\n", i);
+		i++;
+	}
 	pl_free_all_piz(&x);
 	return (1);
 }
 
+/*
 void	print_philo(t_admin *admin)
 {
 	t_philo	*p;
@@ -47,6 +56,7 @@ void	print_philo(t_admin *admin)
 	printf("---------------\n");
 	return ;
 }
+*/
 
 void	print_philo_piz(t_admin *admin)
 {
