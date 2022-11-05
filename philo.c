@@ -6,13 +6,12 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:28:50 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/04 17:01:30 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/05 19:32:35 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-//void	print_philo(t_admin *admin);
 void	print_philo_piz(t_admin *admin);
 
 int	main(int argc, char **argv)
@@ -33,38 +32,9 @@ int	main(int argc, char **argv)
 		pl_free_all_piz(&x);
 		return (0);
 	}
-	//print_philo_piz(&x);
-	while (i < x.nb_philo)
-	{
-		pthread_join(x.philo[i].th, NULL);
-		printf("Thread number %d has finished\n", i);
-		i++;
-	}
 	pl_free_all_piz(&x);
 	return (1);
 }
-
-/*
-void	print_philo(t_admin *admin)
-{
-	t_philo	*p;
-
-	p = admin->first_philo;
-	printf("\n---------------\n");
-	while (p->next != NULL)
-	{
-		printf("ptr philo num%d = %p\nnext philo = %p\nlast_time = %ld\n"
-			"fork = %p\nnext fork = %p\n\n",
-			p->num, p, p->next, p->last_time, &(p->own_fork), p->next_fork);
-		p = p->next;
-	}
-	printf("ptr philo num%d = %p\nnext philo = %p\nlast_time = %ld\n"
-		"fork = %p\nnext fork = %p\n\n",
-		p->num, p, p->next, p->last_time, &(p->own_fork), p->next_fork);
-	printf("---------------\n");
-	return ;
-}
-*/
 
 void	print_philo_piz(t_admin *admin)
 {

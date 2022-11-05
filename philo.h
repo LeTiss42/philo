@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:30:28 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/03 12:31:10 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/05 20:20:39 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef struct s_philo
 	struct s_philo	*next;
 	pthread_t		th;
 	pthread_mutex_t	own_fork;
-	pthread_mutex_t	*next_fork;
+	//ne marche pas bien?
+	//pthread_mutex_t	*next_fork;
 }	t_philo;
 
 typedef struct s_admin
@@ -37,7 +38,6 @@ typedef struct s_admin
 	int				tt_e;
 	int				tt_s;
 	int				nb_meal;
-	t_philo			*first_philo;
 	t_philo			*philo;
 	int				is_end;
 	long int		start_time;
@@ -54,10 +54,8 @@ void		*func(void *admin);
 
 //pl_init
 int			pl_init_piz(t_admin *admin);
-//int			pl_init_all(t_admin *x, int nb_philo);
-//int			pl_add_philo(t_admin *x, int num);
-//int			pl_add_first_philo(t_admin *x);
-//int			pl_add_any_philo(t_admin *admin, t_philo *x, int num);
+void		pl_set(t_admin *admin);
+void		pl_set_one_philo(t_admin *admin);
 
 //pl_set_time
 long int	pl_get_ms_time(void);

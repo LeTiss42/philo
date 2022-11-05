@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:10:29 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/02 17:10:28 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/05 18:49:32 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,32 +61,5 @@ void	pl_free_all_piz(t_admin *admin)
 	printf("Freing admin = %p\n", admin->philo);
 	free(admin->philo);
 	printf("all freed up!\n");
-	return ;
-}
-
-void	pl_free_all(t_admin *admin)
-{
-	t_philo	*p;
-	t_philo	*philo;
-	t_philo	*temp;
-
-	philo = admin->first_philo;
-	p = admin->first_philo;
-	while (philo->next != NULL)
-	{
-		p = philo->next;
-		while (p->next != NULL)
-		{
-			temp = p;
-			p = p->next;
-		}
-		if (pthread_mutex_destroy(&p->own_fork) != 0)
-			printf("Error\nProblem destroying mutex!\n");
-		printf("freeing ptr = %p\n", p);
-		free(p);
-		temp->next = NULL;
-		temp = p;
-	}
-	printf("all freed up.\n");
 	return ;
 }

@@ -6,19 +6,20 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:24:49 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/03 12:13:45 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/05 20:16:58 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*func(void *admin)
+void	*func(void *philo)
 {
-	t_admin	*temp;
-
-	temp = (t_admin *)admin;
-	printf("Start = %ld\n", pl_get_ms_time());
-	usleep(2000000);
-	printf("End = %ld\n", pl_get_ms_time() - temp->start_time);
+	printf("___________________________\n");
+	printf("own adrr = %p\n", philo);
+	printf("num = %d\nlast_time = %ld\nnext = %p\n", ((t_philo *)philo)->num,
+		((t_philo *)philo)->last_time, ((t_philo *)philo)->next);
+	printf("th = %p\nown__fork = %p\nnext_fork %p\n", ((t_philo *)philo)->th,
+		&((t_philo *)philo)->own_fork, &((t_philo *)philo)->next->own_fork);
+	printf("___________________________\n");
 	return (NULL);
 }
