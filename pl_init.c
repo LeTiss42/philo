@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 18:20:56 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/03 12:47:03 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/04 16:50:22 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ int	pl_init_piz(t_admin *admin)
 	i = 0;
 	admin->philo = malloc(sizeof(t_philo) * admin->nb_philo);
 	if (admin->philo == NULL)
+	{
+		printf("Malloc Error, unlucky...\n");
 		return (0);
+	}
 	printf("Malloc admin = %p\n", admin->philo);
 	admin->start_time = pl_get_ms_time();
 	while (i < admin->nb_philo)

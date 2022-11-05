@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:28:50 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/03 12:45:13 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/04 17:01:30 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,17 @@ int	main(int argc, char **argv)
 	i = 0;
 	if (pl_parsing(argc, argv, &x) == 1)
 		printf("Parsing ok\n");
+	else
+		return (0);
 	if (pl_init_piz(&x) == 1)
 		printf("init ok\n");
-	print_philo_piz(&x);
+	else
+	{
+		printf("Init error, aborting.\n");
+		pl_free_all_piz(&x);
+		return (0);
+	}
+	//print_philo_piz(&x);
 	while (i < x.nb_philo)
 	{
 		pthread_join(x.philo[i].th, NULL);

@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:57:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/03 12:40:56 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/04 16:48:45 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ int	pl_parsing(int argc, char **argv, t_admin *admin)
 	if (pl_check_argc(argc) && pl_check_argv(argv))
 		pl_parse_argv(argv, admin);
 	else
+	{
+		printf("Error\nFailed to parse arguments.\n");
 		return (0);
+	}
 	printf("--------------------\n");
 	printf("| nb philo      = %d\n", admin->nb_philo);
 	printf("| time to die   = %d\n", admin->tt_d);
