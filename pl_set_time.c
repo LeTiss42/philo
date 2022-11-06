@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 17:03:38 by mravera           #+#    #+#             */
-/*   Updated: 2022/10/30 17:13:28 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/06 22:02:02 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,12 @@ long int	pl_get_ms_time(void)
 	res = tv.tv_sec * 1000;
 	res = res + (tv.tv_usec / 1000);
 	return (res);
+}
+
+long int	pl_get_now(t_admin *admin)
+{
+	long int	now;
+
+	now = pl_get_ms_time() - admin->start_time;
+	return (now);
 }
