@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:30:28 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/06 23:40:55 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/08 18:55:56 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ typedef struct s_admin
 	t_philo			*philo;
 	int				is_end;
 	long int		start_time;
+	int				eat_ok;
 }	t_admin;
+
+//main
+void		pl_check_end(t_philo *philo);
 
 //pl_parsing
 int			pl_parsing(int argc, char **argv, t_admin *admin);
@@ -63,6 +67,7 @@ void		pl_set_one_philo(t_admin *admin);
 //pl_set_time
 long int	pl_get_ms_time(void);
 long int	pl_get_now(t_admin *admin);
+void		pl_msleep(long int time);
 
 //pl_utils
 int			pl_atoi(const char *nptr);

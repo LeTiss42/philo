@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:57:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/04 16:48:45 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:51:56 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	pl_parsing(int argc, char **argv, t_admin *admin)
 		printf("Error\nFailed to parse arguments.\n");
 		return (0);
 	}
+	/*
 	printf("--------------------\n");
 	printf("| nb philo      = %d\n", admin->nb_philo);
 	printf("| time to die   = %d\n", admin->tt_d);
@@ -28,6 +29,7 @@ int	pl_parsing(int argc, char **argv, t_admin *admin)
 	printf("| time to sleep = %d\n", admin->tt_s);
 	printf("| nb of meal    = %d\n", admin->nb_meal);
 	printf("--------------------\n");
+	*/
 	if (admin->nb_philo <= 0)
 	{
 		printf("Need at least 1 philosopher to start philosophizing\n");

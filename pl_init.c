@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 18:20:56 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/06 23:25:21 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/08 19:36:46 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int	pl_init_piz(t_admin *admin)
 		printf("Malloc Error, unlucky...\n");
 		return (0);
 	}
-	printf("Malloc 1st philo = %p\n", admin->philo);
+	//printf("Malloc 1st philo = %p\n", admin->philo);
 	pl_set(admin);
 	admin->start_time = pl_get_ms_time();
+	admin->eat_ok = 1;
 	while (i < admin->nb_philo)
 	{
 		if (pthread_mutex_init(&admin->philo[i].own_fork, NULL) != 0)
@@ -51,6 +52,7 @@ void	pl_set(t_admin *admin)
 		{
 			admin->philo[i].num = i;
 			admin->philo[i].adm = admin;
+			admin->philo[i].nb_eat = 0;
 			if (i == (admin->nb_philo - 1))
 				admin->philo[i].next = &admin->philo[0];
 			else
@@ -67,5 +69,6 @@ void	pl_set_one_philo(t_admin *admin)
 {
 	admin->philo[0].next = NULL;
 	admin->philo[0].num = 0;
+	admin->philo[0].nb_eat = 0;
 	admin->philo[0].adm = admin;
 }
