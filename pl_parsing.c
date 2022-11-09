@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:57:37 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/08 19:51:56 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/09 14:32:22 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	pl_parsing(int argc, char **argv, t_admin *admin)
 {
-	if (pl_check_argc(argc) && pl_check_argv(argv))
+	if (pl_check_argc(argc) && pl_check_argv(argv) && pl_has_digit(argv))
 		pl_parse_argv(argv, admin);
 	else
 	{
@@ -89,6 +89,32 @@ int	pl_check_argv(char **argv)
 			printf("Negative arg spotted.\n");
 			return (0);
 		}
+		i++;
+		j = 0;
+	}
+	return (1);
+}
+
+int	pl_has_digit(char **argv)
+{
+	int	i;
+	int	j;
+	int	digit;
+
+	i = 1;
+	j = 0;
+	digit = 0;
+	while (argv[i])
+	{
+		while (argv[i][j])
+		{
+			if (pl_isdigit(argv[i][j]) == 1)
+				digit = 1;
+			j++;
+		}
+		if (digit == 0)
+			return (0);
+		digit = 0;
 		i++;
 		j = 0;
 	}

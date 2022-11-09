@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:30:28 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/08 18:55:56 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/09 14:23:55 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int			pl_parsing(int argc, char **argv, t_admin *admin);
 int			pl_check_argc(int argc);
 int			pl_parse_argv(char **argv, t_admin *admin);
 int			pl_check_argv(char **argv);
+int			pl_has_digit(char **argv);
 
 //pl_routine
 void		*func(void *admin);
@@ -66,8 +67,10 @@ void		pl_set_one_philo(t_admin *admin);
 
 //pl_set_time
 long int	pl_get_ms_time(void);
+long int	pl_get_tenth_time(void);
 long int	pl_get_now(t_admin *admin);
 void		pl_msleep(long int time);
+void		pl_tenth_sleep(long int time);
 
 //pl_utils
 int			pl_atoi(const char *nptr);

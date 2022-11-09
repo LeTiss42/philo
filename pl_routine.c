@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:24:49 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/08 19:39:13 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/09 14:28:39 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	philo_sleep(t_philo *philo)
 		philo->nb_eat ++;
 		printf("%ld %d is sleeping\n", pl_get_now(philo->adm), philo->num);
 	}
+	if (philo->adm->tt_s == 0)
+		pl_tenth_sleep(5);
 	pl_msleep(philo->adm->tt_s);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:28:50 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/08 19:40:40 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/09 14:32:41 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ void	print_philo_piz(t_admin *admin)
 	i = 0;
 	usleep(100000);
 	printf("\n\nStart_time = %ld\n", admin->start_time);
-	printf("admin addr = %p\n", admin);
+	printf("\n\nadmin addr = %p\n", admin);
 	while (i < admin->nb_philo)
 	{
-		printf("___________________________\n");
+		printf("\n\n___________________________\n");
 		printf("own adrr = %p\n", p);
 		printf("num = %d nb_eat = %d\nlast_time = %ld\nnext = %p\n",
 			p[i].num, p[i].nb_eat,

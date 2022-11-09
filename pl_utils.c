@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:10:29 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/08 19:41:56 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/09 12:31:57 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	pl_atoi(const char *nptr)
 	res = 0;
 	while ((9 <= nptr[i] && nptr[i] <= 13) || (nptr[i] == ' '))
 		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
+	while (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
 			sign = sign * -1;
@@ -51,16 +51,16 @@ void	pl_free_all_piz(t_admin *admin)
 	int	i;
 
 	i = 0;
-	usleep((admin->tt_d + admin->tt_e + admin->tt_s) * 1000);
+	usleep((admin->tt_d + admin->tt_e + admin->tt_s + 100) * 1000);
 	while (i < admin->nb_philo)
 	{
-		//printf("Destroying fork nb%d addr = %p\n", i, &admin->philo[i].own_fork);
+		printf("Destroying fork nb%d addr = %p\n", i, &admin->philo[i].own_fork);
 		if (pthread_mutex_destroy(&admin->philo[i].own_fork) != 0)
-			perror("Error\nProblem destroying mutex!\n");
+			printf("Error\nProblem destroying mutex!\n");
 		i++;
 	}
-	//printf("Freing admin = %p\n", admin->philo);
+	printf("Freing admin = %p\n", admin->philo);
 	free(admin->philo);
-	//printf("all freed up!\n");
+	printf("all freed up!\n");
 	return ;
 }
