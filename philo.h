@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 14:30:28 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/09 14:23:55 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/09 16:15:33 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ typedef struct s_admin
 
 //main
 void		pl_check_end(t_philo *philo);
+void		pl_end_dead(t_philo philo);
+void		pl_end_eat(t_philo *philo);
+void		print_philo_piz(t_admin *admin);
 
 //pl_parsing
 int			pl_parsing(int argc, char **argv, t_admin *admin);

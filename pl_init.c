@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 18:20:56 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/08 19:36:46 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/09 16:15:08 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	pl_init_piz(t_admin *admin)
 		printf("Malloc Error, unlucky...\n");
 		return (0);
 	}
-	//printf("Malloc 1st philo = %p\n", admin->philo);
 	pl_set(admin);
 	admin->start_time = pl_get_ms_time();
 	admin->eat_ok = 1;

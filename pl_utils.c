@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 18:10:29 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/09 12:31:57 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/09 16:15:02 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,10 @@ void	pl_free_all_piz(t_admin *admin)
 	usleep((admin->tt_d + admin->tt_e + admin->tt_s + 100) * 1000);
 	while (i < admin->nb_philo)
 	{
-		printf("Destroying fork nb%d addr = %p\n", i, &admin->philo[i].own_fork);
 		if (pthread_mutex_destroy(&admin->philo[i].own_fork) != 0)
 			printf("Error\nProblem destroying mutex!\n");
 		i++;
 	}
-	printf("Freing admin = %p\n", admin->philo);
 	free(admin->philo);
-	printf("all freed up!\n");
 	return ;
 }
