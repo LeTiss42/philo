@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:24:49 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/09 16:09:26 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:38:03 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ void	*func(void *philo)
 
 	p = philo;
 	if (p->num % 2 == 0)
-		pl_tenth_sleep(5);
+		pl_tenth_sleep(1);
 	while (p->adm->is_end == 0)
 	{
+		if (p->num % 2 == 0)
+			pl_tenth_sleep(5);
 		philo_eat(p);
 		if (p->adm->is_end == 0)
 			philo_sleep(p);
