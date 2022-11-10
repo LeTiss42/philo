@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:24:49 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/10 12:38:03 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/10 16:07:23 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ void	*func(void *philo)
 
 	p = philo;
 	if (p->num % 2 == 0)
-		pl_tenth_sleep(1);
+		pl_tenth_sleep(200);
 	while (p->adm->is_end == 0)
 	{
-		if (p->num % 2 == 0)
-			pl_tenth_sleep(5);
 		philo_eat(p);
 		if (p->adm->is_end == 0)
 			philo_sleep(p);
@@ -47,10 +45,10 @@ void	philo_eat(t_philo *philo)
 	}
 	if (pthread_mutex_lock(&philo->next->own_fork) != 0)
 		printf("Error\nMutex unknown.\n");
-	philo->last_time = pl_get_now(philo->adm);
 	if (philo->adm->is_end == 0)
 		printf("%ld %d is eating\n", pl_get_now(philo->adm), philo->num);
 	pl_msleep(philo->adm->tt_e);
+	philo->last_time = pl_get_now(philo->adm);
 	if (pthread_mutex_unlock(&philo->own_fork) != 0)
 		printf("Error\nMutex unknown.\n");
 	if (pthread_mutex_unlock(&philo->next->own_fork) != 0)
@@ -67,7 +65,7 @@ void	philo_sleep(t_philo *philo)
 	}
 	if (philo->adm->tt_s == 0)
 		pl_tenth_sleep(5);
-	pl_tenth_sleep(philo->adm->tt_s * 10);
+	pl_msleep(philo->adm->tt_s);
 	return ;
 }
 
