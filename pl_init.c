@@ -6,7 +6,7 @@
 /*   By: mravera <mravera@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 18:20:56 by mravera           #+#    #+#             */
-/*   Updated: 2022/11/09 16:15:08 by mravera          ###   ########.fr       */
+/*   Updated: 2022/11/10 12:03:42 by mravera          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	pl_set(t_admin *admin)
 	{
 		while (i < admin->nb_philo)
 		{
-			admin->philo[i].num = i;
+			admin->philo[i].num = i + 1;
 			admin->philo[i].adm = admin;
 			admin->philo[i].nb_eat = 0;
 			if (i == (admin->nb_philo - 1))
@@ -67,7 +67,7 @@ void	pl_set(t_admin *admin)
 void	pl_set_one_philo(t_admin *admin)
 {
 	admin->philo[0].next = NULL;
-	admin->philo[0].num = 0;
+	admin->philo[0].num = 1;
 	admin->philo[0].nb_eat = 0;
 	admin->philo[0].adm = admin;
 }
